@@ -12,7 +12,7 @@
 	$inspect(rubiksCube.cube);
 </script>
 
-<div class="flex h-screen flex-col items-center justify-center space-y-4">
+<div class="flex size-full flex-col items-center justify-center space-y-4">
 	<div>
 		<Cube {rubiksCube}></Cube>
 	</div>
