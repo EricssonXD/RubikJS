@@ -9,9 +9,15 @@
 	// $inspect(rubiksCube.cube);
 </script>
 
-<CubeFace face={cube.F}></CubeFace>
-<CubeFace face={cube.B}></CubeFace>
-<CubeFace face={cube.U}></CubeFace>
-<CubeFace face={cube.D}></CubeFace>
-<CubeFace face={cube.L}></CubeFace>
-<CubeFace face={cube.R}></CubeFace>
+<div>
+	{rubiksCube.asString()}
+</div>
+<div>
+	<CubeFace face={cube.F}></CubeFace>
+	<CubeFace face={cube.B}></CubeFace>
+	<CubeFace face={cube.U}></CubeFace>
+	<CubeFace face={cube.D}></CubeFace>
+	<CubeFace face={cube.L}></CubeFace>
+	<CubeFace face={cube.R}></CubeFace>
+</div>
+	
