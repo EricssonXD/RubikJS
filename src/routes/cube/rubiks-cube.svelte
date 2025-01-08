@@ -7,10 +7,18 @@
 	const sizeZ = 3;
 	const gap = 0.1;
 
+	const offsetX = ((sizeX - 1) * (1 + gap)) / 2;
+	const offsetY = ((sizeY - 1) * (1 + gap)) / 2;
+	const offsetZ = ((sizeZ - 1) * (1 + gap)) / 2;
+
 	for (let x = 0; x < sizeX; x++) {
 		for (let y = 0; y < sizeY; y++) {
 			for (let z = 0; z < sizeZ; z++) {
-				cubes.push({ x: x * (1 + gap), y: y * (1 + gap), z: z * (1 + gap) });
+				cubes.push({
+					x: x * (1 + gap) - offsetX,
+					y: y * (1 + gap) - offsetY,
+					z: z * (1 + gap) - offsetZ
+				});
 			}
 		}
 	}

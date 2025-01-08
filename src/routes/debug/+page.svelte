@@ -18,7 +18,7 @@
 	</div>
 	<div class="flex flex-row gap-2">
 		<Button onclick={() => rubiksCube.identity()}>Reset</Button>
-		<Button onclick={() => rubiksCube.randomize()}>Set test</Button>
+		<Button onclick={() => rubiksCube.randomize()}>Randomize</Button>
 	</div>
 	<div class="flex flex-row gap-2">
 		<Button

@@ -27,6 +27,7 @@
 		"@sveltejs/adapter-cloudflare": "^4.8.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@threlte/studio": "0.1.0-next.27",
 		"autoprefixer": "^10.4.20",
 		"bits-ui": "1.0.0-next.77",
 		"clsx": "^2.1.1",

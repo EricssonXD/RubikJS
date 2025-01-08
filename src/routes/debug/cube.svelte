@@ -4,20 +4,16 @@
 
 	let { rubiksCube }: { rubiksCube: RubiksCube } = $props();
 
-	const cube = $derived(rubiksCube.cube)
+	const cube = $derived(rubiksCube.cube);
 
 	// $inspect(rubiksCube.cube);
 </script>
 
-<div>
-	{rubiksCube.asString()}
-</div>
-<div>
+<div class="inline-grid grid-cols-4 gap-1">
+	<CubeFace class="col-start-2" face={cube.U}></CubeFace>
+	<CubeFace class="col-start-1" face={cube.L}></CubeFace>
 	<CubeFace face={cube.F}></CubeFace>
-	<CubeFace face={cube.B}></CubeFace>
-	<CubeFace face={cube.U}></CubeFace>
-	<CubeFace face={cube.D}></CubeFace>
-	<CubeFace face={cube.L}></CubeFace>
 	<CubeFace face={cube.R}></CubeFace>
+	<CubeFace face={cube.B}></CubeFace>
+	<CubeFace class="col-start-2" face={cube.D}></CubeFace>
 </div>
-	

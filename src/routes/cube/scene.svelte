@@ -16,9 +16,8 @@
 
 <T.DirectionalLight position={[0, 10, 10]} />
 
-<Grid infiniteGrid fadeDistance={30} sectionSize={1}></Grid>
+<!-- <Grid infiniteGrid fadeDistance={30} sectionSize={1}></Grid> -->
 <Stars />
 
-<Float floatIntensity={1.2} rotationIntensity={1.2} rotationSpeed={1}>
-	<RubiksCube />
-</Float>
+<Float floatIntensity={1.2} rotationIntensity={1.2} rotationSpeed={1}></Float>
+<RubiksCube />
