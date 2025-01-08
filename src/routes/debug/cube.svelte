@@ -4,12 +4,20 @@
 
 	let { rubiksCube }: { rubiksCube: RubiksCube } = $props();
 
-	const cube = rubiksCube.cube;
+	const cube = $derived(rubiksCube.cube)
+
+	// $inspect(rubiksCube.cube);
 </script>
 
-<CubeFace face={cube[0]}></CubeFace>
-<CubeFace face={cube[1]}></CubeFace>
-<CubeFace face={cube[2]}></CubeFace>
-<CubeFace face={cube[3]}></CubeFace>
-<CubeFace face={cube[4]}></CubeFace>
-<CubeFace face={cube[5]}></CubeFace>
+<div>
+	{rubiksCube.asString()}
+</div>
+<div>
+	<CubeFace face={cube.F}></CubeFace>
+	<CubeFace face={cube.B}></CubeFace>
+	<CubeFace face={cube.U}></CubeFace>
+	<CubeFace face={cube.D}></CubeFace>
+	<CubeFace face={cube.L}></CubeFace>
+	<CubeFace face={cube.R}></CubeFace>
+</div>
+	

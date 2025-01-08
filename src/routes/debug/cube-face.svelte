@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { colorMap, type RubiksCubeSide } from '$lib/rubiks/rubiks.svelte';
+	import { colorMap  } from '$lib/rubiks/rubiks.svelte';
 
-	let { face }: { face: RubiksCubeSide } = $props();
+	let { face }: { face: string[] } = $props();
 </script>
 
 <!-- A 3x3 cube with different colors -->
