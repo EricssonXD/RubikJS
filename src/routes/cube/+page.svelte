@@ -16,7 +16,7 @@
 				<Scene />
 			</Studio>
 		{:else}
-			<PerfMonitor anchorX={'right'} logsPerSecond={30} />
+			<!-- <PerfMonitor anchorX={'right'} logsPerSecond={30} /> -->
 			<Scene />
 		{/if}
 	</Canvas>
