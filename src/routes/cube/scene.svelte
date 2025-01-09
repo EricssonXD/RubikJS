@@ -1,11 +1,7 @@
 <script>
 	import { T } from '@threlte/core';
-	import { Float,  OrbitControls, Stars } from '@threlte/extras';
+	import { Float, OrbitControls, Stars } from '@threlte/extras';
 	import RubiksCube from './rubiks-cube.svelte';
-	import { PointLight } from 'three';
-
-	var light = new PointLight( 0xffffff, 0.9 );
-
 </script>
 
 <T.PerspectiveCamera
@@ -16,11 +12,13 @@
 	}}
 >
 	<OrbitControls enableDamping enablePan={false} />
-	<T.PointLight color={0xffffff} intensity={1}  />
+	<!-- <T.PointLight color={0xffffff} intensity={1}  /> -->
+	<T.DirectionalLight />
 </T.PerspectiveCamera>
 
-<T.AmbientLight intensity={0.1} />
-<T.DirectionalLight position={[10, 10, 10]} />
+<T.AmbientLight intensity={0.05} />
+<!-- <T.DirectionalLight position={[5, 5, 5]} /> -->
+<!-- <T.PointLight color={0xffffff} intensity={100} position={[5, 5, 5]} /> -->
 
 <!-- <Grid infiniteGrid fadeDistance={30} sectionSize={1}></Grid> -->
 <Stars />
