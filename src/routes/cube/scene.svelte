@@ -2,6 +2,13 @@
 	import { T } from '@threlte/core';
 	import { Float, OrbitControls, Stars } from '@threlte/extras';
 	import RubiksCube from './rubiks-cube.svelte';
+	import { interactivity } from '@threlte/extras';
+	interactivity({
+    filter: (hits, state) => {
+      // Only return the first hit
+      return hits.slice(0, 1)
+    }
+  })	
 </script>
 
 <T.PerspectiveCamera
@@ -12,7 +19,7 @@
 	}}
 >
 	<OrbitControls enableDamping enablePan={false} />
-	<!-- <T.PointLight color={0xffffff} intensity={1}  /> -->
+	<T.PointLight  intensity={5}  />
 	<T.DirectionalLight />
 </T.PerspectiveCamera>
 

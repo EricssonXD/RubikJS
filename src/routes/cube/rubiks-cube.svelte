@@ -24,9 +24,8 @@
 	}
 </script>
 
-<!-- {#each cubes as { x, y, z }}
+{#each cubes as { x, y, z }}
 	<T.Mesh position={[x, y, z]}>
 		<Cube />
 	</T.Mesh>
-{/each} -->
-<Cube />
+{/each}

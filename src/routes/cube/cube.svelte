@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
+	import { Edges, Outlines, RoundedBoxGeometry, type DomEvent, type IntersectionEvent } from '@threlte/extras';
 	import { onMount } from 'svelte';
-	import { Color, Float32BufferAttribute, type BoxGeometry, type ColorRepresentation, type MeshBasicMaterial } from 'three';
+	import { Color, Float32BufferAttribute, type BoxGeometry } from 'three';
 
-	// let material = $state<MeshBasicMaterial>();
+  // let material = $state<MeshBasicMaterial>();
 	let geometry = $state<BoxGeometry>();
+	
+	onMount(() => {
 
 	// Define colors for each face (6 faces, each with 4 vertices)
 	const colors = [
@@ -28,19 +31,31 @@
 		}
 	}
 
-
 	const colorAttribute = new Float32BufferAttribute(vertexColors, 3);
 
-	onMount	(() => {
 		geometry!.setAttribute('color', colorAttribute);
 	});
+
+	let hovering = $state(false);
 </script>
 
 <T.Mesh>
-	<T.BoxGeometry bind:ref={geometry} />
-	<T.MeshPhongMaterial vertexColors={true} />
+	<RoundedBoxGeometry />
+	<T.MeshBasicMaterial visible={false}/>
+	<Outlines color="white" visible={hovering} thickness={0.1} renderOrder={5} />
 </T.Mesh>
 
-<!-- <T.Mesh geometry={geometry} >
-	<T.MeshPhongMaterial vertexColors={true} />
-  </T.Mesh> -->
+<T.Mesh
+	onpointerenter={(e:IntersectionEvent<MouseEvent>) => {
+		console.log(e.stopped)
+		e.stopPropagation();
+		hovering = true;
+	}}
+	onpointerleave={(e:IntersectionEvent<MouseEvent>) => {
+		e.stopPropagation();
+		hovering = false;
+		console.log(e)
+	}}>
+	<T.BoxGeometry bind:ref={geometry} />
+	<T.MeshPhongMaterial vertexColors={true}/>
+</T.Mesh>
