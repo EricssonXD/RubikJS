@@ -24,8 +24,8 @@
 	}
 </script>
 
-{#each cubes as { x, y, z }}
-	<T.Mesh position={[x, y, z]}>
-		<Cube />
-	</T.Mesh>
-{/each}
+<T.Group>
+	{#each cubes as { x, y, z }}
+		<Cube position={[x, y, z]}/>
+	{/each}
+</T.Group>

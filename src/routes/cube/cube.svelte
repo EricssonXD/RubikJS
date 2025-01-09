@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { Color, Float32BufferAttribute, type BoxGeometry } from 'three';
 
-  // let material = $state<MeshBasicMaterial>();
+	const { position } = $props<{ position: [number, number, number] }>();
 	let geometry = $state<BoxGeometry>();
 	
 	onMount(() => {
@@ -39,13 +39,14 @@
 	let hovering = $state(false);
 </script>
 
-<T.Mesh>
+<T.Mesh position={position}>
 	<RoundedBoxGeometry />
 	<T.MeshBasicMaterial visible={false}/>
-	<Outlines color="white" visible={hovering} thickness={0.1} renderOrder={5} />
+	<Outlines color="white" visible={hovering} thickness={0.1}/>
 </T.Mesh>
 
-<T.Mesh
+<T.Mesh 
+	position={position}
 	onpointerenter={(e:IntersectionEvent<MouseEvent>) => {
 		console.log(e.stopped)
 		e.stopPropagation();
@@ -55,7 +56,14 @@
 		e.stopPropagation();
 		hovering = false;
 		console.log(e)
-	}}>
+	}}
+	onpointerdown={(e:IntersectionEvent<MouseEvent>) => {
+		console.log(e.normal);
+		if(e.normal) {
+			e.normal.x
+		}
+	}}
+	>
 	<T.BoxGeometry bind:ref={geometry} />
 	<T.MeshPhongMaterial vertexColors={true}/>
 </T.Mesh>
